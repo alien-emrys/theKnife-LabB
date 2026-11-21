@@ -27,7 +27,7 @@ public class Ristorante implements Serializable {
     public Ristorante() {
     }
     
-    public Ristorante(int id, String nome, String nazione, String citta, String indirizzo, double latitudine, double longitudine, int fascia, boolean delivery, boolean prenotazioniOnline, String proprietario, List <String> cucine, double mediaStelle, int numRecensioni) {
+    public Ristorante(int id, String nome, String nazione, String citta, String indirizzo, double latitudine, double longitudine, int fascia, boolean delivery, boolean prenotazioneOnline, String proprietario, List <String> cucine, double mediaStelle, int numeroRecensioni) {
         this.id = id;
         this.nome = nome;
         this.nazione = nazione;
@@ -37,14 +37,13 @@ public class Ristorante implements Serializable {
         this.longitudine = longitudine;
         this.fascia = fascia;
         this.delivery = delivery;
-        this.prenotazioneOnline = prenotazioniOnline;
+        this.prenotazioneOnline = prenotazioneOnline;
         this.proprietario = proprietario;
         this.cucine = cucine;
         this.mediaStelle = mediaStelle;
-        this.numeroRecensioni = numRecensioni;
+        this.numeroRecensioni = numeroRecensioni;
     }
     
-    //TODO: creare metodo conversione fascia di prezzo
 
 	public int getId() {
 		return id;
@@ -86,12 +85,12 @@ public class Ristorante implements Serializable {
 		this.indirizzo = indirizzo;
 	}
 
-	public double getLatidutine() {
+	public double getLatitudine() {
 		return latitudine;
 	}
 
-	public void setLatidutine(double latidutine) {
-		this.latitudine = latidutine;
+	public void setLatitudine(double latitudine) {
+		this.latitudine = latitudine;
 	}
 
 	public double getLongitudine() {
@@ -130,12 +129,12 @@ public class Ristorante implements Serializable {
 		this.delivery = delivery;
 	}
 
-	public boolean isPrenotazioniOnline() {
+	public boolean isprenotazioneOnline() {
 		return prenotazioneOnline;
 	}
 
-	public void setPrenotazioniOnline(boolean prenotazioniOnline) {
-		this.prenotazioneOnline = prenotazioniOnline;
+	public void setprenotazioneOnline(boolean prenotazioneOnline) {
+		this.prenotazioneOnline = prenotazioneOnline;
 	}
 
 	public String getProprietario() {
@@ -162,20 +161,20 @@ public class Ristorante implements Serializable {
 		this.mediaStelle = mediaStelle;
 	}
 
-	public int getNumRecensioni() {
+	public int getnumeroRecensioni() {
 		return numeroRecensioni;
 	}
 
-	public void setNumRecensioni(int numRecensioni) {
-		this.numeroRecensioni = numRecensioni;
+	public void setnumeroRecensioni(int numeroRecensioni) {
+		this.numeroRecensioni = numeroRecensioni;
 	}
 
 	@Override
 	public String toString() {
 		return "Ristorante [id=" + id + ", nome=" + nome + ", nazione=" + nazione + ", citta=" + citta + ", indirizzo="
-				+ indirizzo + ", latidutine=" + latitudine + ", longitudine=" + longitudine + ", fascia=" + fascia
-				+ ", delivery=" + delivery + ", prenotazioniOnline=" + prenotazioneOnline + ", proprietario="
-				+ proprietario + ", cucine=" + cucine + ", mediaStelle=" + mediaStelle + ", numRecensioni="
+				+ indirizzo + ", latitudine=" + latitudine + ", longitudine=" + longitudine + ", fascia=" + fascia
+				+ ", delivery=" + delivery + ", prenotazioneOnline=" + prenotazioneOnline + ", proprietario="
+				+ proprietario + ", cucine=" + cucine + ", mediaStelle=" + mediaStelle + ", numeroRecensioni="
 				+ numeroRecensioni + "]";
 	}
 }
