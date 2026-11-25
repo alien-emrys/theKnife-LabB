@@ -129,11 +129,11 @@ public class Ristorante implements Serializable {
 		this.delivery = delivery;
 	}
 
-	public boolean isprenotazioneOnline() {
+	public boolean isPrenotazioneOnline() {
 		return prenotazioneOnline;
 	}
 
-	public void setprenotazioneOnline(boolean prenotazioneOnline) {
+	public void setPrenotazioneOnline(boolean prenotazioneOnline) {
 		this.prenotazioneOnline = prenotazioneOnline;
 	}
 
@@ -161,11 +161,11 @@ public class Ristorante implements Serializable {
 		this.mediaStelle = mediaStelle;
 	}
 
-	public int getnumeroRecensioni() {
+	public int getNumeroRecensioni() {
 		return numeroRecensioni;
 	}
 
-	public void setnumeroRecensioni(int numeroRecensioni) {
+	public void setNumeroRecensioni(int numeroRecensioni) {
 		this.numeroRecensioni = numeroRecensioni;
 	}
 
