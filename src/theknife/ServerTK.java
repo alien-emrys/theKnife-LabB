@@ -21,7 +21,7 @@ public class ServerTK {
 		DatabaseConnection.configura(host,utente,password);
 		
 		try (Connection c = DatabaseConnection.getConnection()) {
-		    System.out.println("Connessione al database riuscita!");
+		    System.out.println("\nConnessione al database riuscita!");
 		} catch (SQLException e) {
 		    System.out.println("Connessione non riuscita! \n" + e.getMessage());
 		    return;
