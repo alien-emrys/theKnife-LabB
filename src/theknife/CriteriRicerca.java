@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-//ciao
 public class CriteriRicerca implements Serializable {
 	
     /** Versione della classe per la serializzazione. */
