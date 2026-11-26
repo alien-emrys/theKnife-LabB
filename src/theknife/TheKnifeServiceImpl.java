@@ -2,6 +2,7 @@ package theknife;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 import java.util.List;
 
 /* Implementa le operazioni dell'interfaccia TheKnifeService
@@ -15,8 +16,10 @@ import java.util.List;
 
 public class TheKnifeServiceImpl extends UnicastRemoteObject implements TheKnifeService {
 
+	private final UtentiDAO utentiDAO = new UtentiDAO();
+	private final PreferitiDAO preferitiDAO = new PreferitiDAO();
 	
-	protected TheKnifeServiceImpl() throws RemoteException {
+	public TheKnifeServiceImpl() throws RemoteException {
 		super();
 		
 	}
@@ -25,20 +28,33 @@ public class TheKnifeServiceImpl extends UnicastRemoteObject implements TheKnife
 
 	@Override
 	public boolean registrazione(Utente utente, String password) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		
+		try {
+			return utentiDAO.registrazione(utente.getUsername(), utente.getNome(),utente.getCognome(), password, utente.getDataNascita(), utente.getIndirizzo(), utente.getCitta(), utente.getRuolo());
+		}catch (SQLException e) {
+	        throw new RemoteException("Errore del database: " + e.getMessage());
+	    }
+
 	}
 
 	@Override
 	public Utente login(String username, String password) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		try {
+			return utentiDAO.login(username, password);
+		}catch (SQLException e) {
+	        throw new RemoteException("Errore del database: " + e.getMessage());
+	    }
 	}
 
 	@Override
 	public boolean eliminaAccount(String username) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		
+		try {
+			return utentiDAO.eliminaAccount(username);
+		}catch (SQLException e) {
+	        throw new RemoteException("Errore del database: " + e.getMessage());
+	    }
 	}
 
 	@Override
@@ -67,20 +83,29 @@ public class TheKnifeServiceImpl extends UnicastRemoteObject implements TheKnife
 
 	@Override
 	public boolean aggiungiPreferito(String cliente, int idRistorante) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			return preferitiDAO.aggiungi(cliente, idRistorante);
+		}catch (SQLException e) {
+	        throw new RemoteException("Errore del database: " + e.getMessage());
+	    }
 	}
 
 	@Override
 	public boolean rimuoviPreferito(String cliente, int idRistorante) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			return preferitiDAO.rimuovi(cliente, idRistorante);
+		}catch (SQLException e) {
+	        throw new RemoteException("Errore del database: " + e.getMessage());
+	    }
 	}
 
 	@Override
 	public List<Ristorante> visualizzaPreferiti(String cliente) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return preferitiDAO.visualizza(cliente);
+		}catch (SQLException e) {
+	        throw new RemoteException("Errore del database: " + e.getMessage());
+	    }
 	}
 
 	@Override
