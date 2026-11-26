@@ -1,6 +1,7 @@
 package theknife;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 /* Implementa le operazioni dell'interfaccia TheKnifeService
@@ -12,7 +13,15 @@ import java.util.List;
  * 
  * */
 
-public class TheKnifeServiceImpl implements TheKnifeService{
+public class TheKnifeServiceImpl extends UnicastRemoteObject implements TheKnifeService {
+
+	
+	protected TheKnifeServiceImpl() throws RemoteException {
+		super();
+		
+	}
+
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public boolean registrazione(Utente utente, String password) throws RemoteException {
