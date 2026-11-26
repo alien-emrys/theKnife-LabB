@@ -70,14 +70,13 @@ public class UtentiDAO {
 		}
 	}
 		
-	public boolean eliminaAccount(String username,String password) throws SQLException{
+	public boolean eliminaAccount(String username) throws SQLException{
 		
-		String query = "DELETE FROM Utenti WHERE username = ? AND password = ?";
+		String query = "DELETE FROM Utenti WHERE username = ?";
 		try(Connection c = DatabaseConnection.getConnection();
 				PreparedStatement p = c.prepareStatement(query)){
 			
 			p.setString(1, username.toLowerCase());
-			p.setString(2, CifraPassword.cifra(password));
 			int righe = p.executeUpdate(); //esegue la query e restituisce quante righe ha modificato.
 			return righe>0;
 			// 1 true: ha trovato l'utente con quello username e quella password e l'ha cancellato;
